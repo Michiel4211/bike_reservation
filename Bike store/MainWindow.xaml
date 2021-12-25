@@ -1,0 +1,19 @@
+﻿<Window x:Class="Bike_store.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bike_store"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Manage Reservations" Command="{Binding P_CreateReservation}" HorizontalAlignment="Left" Margin="401,75,0,0" VerticalAlignment="Top" Width="286" Height="154" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="White" FontSize="20"/>
+        <Button x:Name="CreateBike" Command="{Binding P_CreateNewBike}" Content="Manage Bikes" HorizontalAlignment="Left" Margin="401,247,0,0" VerticalAlignment="Top" Width="286" Height="154" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="White" RenderTransformOrigin="0.5,0.5" FontSize="20"/>
+        <Button Content="Manage Stores" Command="{Binding P_CreateNewStoreClick}" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="285" Height="154" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="White" FontSize="20"/>
+        <Button Content="Manage Customers" Command="{Binding P_CreateCustomer}" HorizontalAlignment="Left" Margin="95,247,0,0" VerticalAlignment="Top" Width="286" Height="154" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="White" FontSize="20"/>
+        <Canvas x:Name="Viewer" HorizontalAlignment="Left" Height="58" VerticalAlignment="Top" Width="792" Background="#FFA2A2A2">
+            <Label Content="Selected Store" Canvas.Top="10" Width="148" Canvas.Left="365" Height="38" FontSize="20"/>
+            <ComboBox ItemsSource="{Binding P_StoreList}" SelectedItem="{Binding P_SelectedStore}" DisplayMemberPath="P_StreetName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="264" Canvas.Left="513" Canvas.Top="10" Height="38" FontSize="20"/>
+        </Canvas>
+    </Grid>
+</Window>

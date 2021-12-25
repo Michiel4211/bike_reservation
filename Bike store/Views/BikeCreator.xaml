@@ -1,0 +1,36 @@
+﻿<Window x:Class="Bike_store.BikeCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bike_store"
+        mc:Ignorable="d"
+        Title="BikeCreator" Height="450" Width="800">
+    <Grid>
+        <Canvas HorizontalAlignment="Left" Height="399" Margin="190,10,0,0" VerticalAlignment="Top" Width="587" Background="#FFCBCBCB">
+            <Label Content="Bike name" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="69"/>
+            <Label Content="Bike discription" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="101"/>
+            <Label Content="Bike brand" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="133"/>
+            <Label Content="Bike gender" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="165"/>
+            <Label Content="Bike size" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="197"/>
+            <Label Content="Bike type" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="229"/>
+            <Label Content="Hour rate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="261"/>
+            <Label Content="Daily rate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="293"/>
+            <ComboBox x:Name="BrandBox" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:E_Brand}}}" SelectedItem="{Binding P_BikeBrand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="133" Height="27"/>
+            <ComboBox x:Name="GenderBox" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:E_BikeGender}}}" SelectedItem="{Binding P_BikeGender}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="165" Height="27"/>
+            <ComboBox x:Name="SizeBox" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:E_BikeSize}}}" SelectedItem="{Binding P_BikeSize}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="197" Height="27"/>
+            <ComboBox x:Name="TypeBox" ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:E_BikeType}}}" SelectedItem="{Binding P_BikeType}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="229" Height="27"/>
+            <TextBox x:Name="BikeName" Text="{Binding P_BikeNameText}" Height="27" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="69" Width="467"/>
+            <TextBox x:Name="BikeDis" Text="{Binding P_BikeDis}" Height="27" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="101" Width="467"/>
+            <TextBox x:Name="HourRate" Text="{Binding P_HourlyRate}" Height="27" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="261" Width="467"/>
+            <TextBox x:Name="DailyRate" Text="{Binding P_DailyRate}" Height="27" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="293" Width="467"/>
+            <TextBox x:Name="DailyRate_Copy" Text="{Binding P_DailyRate}" Height="27" Canvas.Left="110" TextWrapping="Wrap" Canvas.Top="293" Width="467"/>
+            <Rectangle Fill="#FFF4F4F5" Height="53" Stroke="Black" Width="587"/>
+            <Label Content="Bike Creator" Canvas.Left="251" Canvas.Top="10" Width="122" FontSize="20"/>
+        </Canvas>
+        <Button x:Name="SaveButton" Command="{Binding P_SaveBike}" Content="Save" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FF24C700"/>
+        <Button x:Name="DeletButton" Command="{Binding P_DeleteBike}" Content="Delete" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FFFF3838"/>
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding P_Store.P_BikeInventory}" DisplayMemberPath="P_Name" SelectedItem="{Binding P_SelectedBike}" Height="314" Margin="10,10,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button x:Name="CancelButton_Copy" Command="{Binding P_EditBike}" Content="Edit" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FFFF7A0B"/>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+﻿<Window x:Class="Bike_store.ReservationCreator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bike_store"
+        mc:Ignorable="d"
+        Title="ReservationCreator" Height="450" Width="800">
+    <Grid>
+        <Canvas HorizontalAlignment="Left" Height="399" Margin="190,10,0,0" VerticalAlignment="Top" Width="587" Background="#FFCBCBCB">
+            <ComboBox x:Name="BrandBox"  ItemsSource="{Binding P_Store.P_CustomerList}" SelectedItem="{Binding P_Customerid}" DisplayMemberPath="P_CustomerName" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="214" Height="23"/>
+            <Label Content="start date" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="160"/>
+            <Label Content="Bike select" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="77"/>
+            <ComboBox x:Name="BikesList" ItemsSource="{Binding P_Store.P_BikeInventory}" SelectedItem="{Binding P_SelectedBike}" DisplayMemberPath="P_Name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="77" Height="27"/>
+            <Label x:Name="HourRate" Content="Hour rate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="103"/>
+            <Label x:Name="DayRate" Content="Day rate" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="129"/>
+            <TextBlock x:Name="Hourr" Text="{Binding P_SelectedBike.P_HourRate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="467" Background="#FFF1F1F1" Canvas.Left="110" Canvas.Top="109" Height="21"/>
+            <TextBlock x:Name="Dayr" Text="{Binding P_SelectedBike.P_DayRate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="467" Background="#FFF1F1F1" Canvas.Left="110" Canvas.Top="135" Height="21"/>
+            <TextBox x:Name="BikeDis" Text="{Binding P_Startdate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="467" Background="#FFF1F1F1" Canvas.Left="110" Canvas.Top="161" Height="21"/>
+            <TextBox x:Name="BikeDis_Copy" Text="{Binding P_Enddate}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="467" Background="#FFF1F1F1" Canvas.Left="110" Canvas.Top="187" Height="22"/>
+            <Label Content="end date" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="183"/>
+            <Label Content="Customer" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="210"/>
+            <ComboBox x:Name="BrandBox_Copy"  ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:E_PaymentStatuss}}}" SelectedItem="{Binding P_PaymentStatus}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="467" Canvas.Left="110" Canvas.Top="241" Height="23"/>
+            <Label Content="Payment status" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.447,-0.308" Height="27" Width="100" Canvas.Left="10" Canvas.Top="237"/>
+        </Canvas>
+        <Button x:Name="SaveButton" Command="{Binding P_SaveReservation}" Content="Save" HorizontalAlignment="Left" Margin="10,386,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FF24C700"/>
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding P_Store.P_ReservationList}" SelectedItem="{Binding P_SelectedReservation}" DisplayMemberPath="P_CustomerID.P_CustomerName" Height="314" Margin="10,10,0,0" VerticalAlignment="Top" Width="169"/>
+        <Rectangle Fill="#FFF4F4F5" Stroke="Black" Margin="190,10,15,356"/>
+        <Label Content="Reservation Creator" FontSize="20" Margin="397,19,199,356"/>
+        <Button x:Name="DeletButton" Command="{Binding P_Delete}" Content="Delete" HorizontalAlignment="Left" Margin="10,329,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FFFF3838"/>
+        <Button x:Name="CancelButton_Copy" Command="{Binding P_Edit}" Content="Edit" HorizontalAlignment="Left" Margin="10,357,0,0" VerticalAlignment="Top" Width="169" Height="23" FontWeight="Bold" FontStyle="Italic" BorderBrush="#FF383636" Background="#FFFF7A0B"/>
+
+    </Grid>
+</Window>
